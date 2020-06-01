@@ -10,7 +10,12 @@ public class Array {
     }
 
     public void expand(){
+        // 递增策略
+        // 复杂度O(n^2) 装填因子≈100%
         int[] newStore = new int[size+5];
+        // 加倍策略（优）
+        // 复杂度O(n) 装填因子>50%
+//        int[] newStore = new int[size <<= 1];
         for (int i=0; i<baseStore.length; i++)
             newStore[i] = baseStore[i];
 //        System.arraycopy(baseStore, 0, newStore, 0, baseStore.length);
