@@ -1,10 +1,35 @@
 package LinkList;
 
-public class LinkList<E> {
+import java.util.Iterator;
+
+public class LinkList<E> implements Iterable<E> {
     private int len = 0;
     protected Node<E> head = null;
 
-//    内部类，单个节点
+    // 构建迭代器遍历所有元素
+    @Override
+    public Iterator<E> iterator() {
+        return new listIterator();
+    }
+
+    private class listIterator implements Iterator<E> {
+        private Node<E> current = head;
+
+        @Override
+        public boolean hasNext() { return current != null; }
+
+        @Override
+        public E next() {
+            E data = current.data;
+            current = current.next;
+            return data;
+        }
+
+        @Override
+        public void remove() {}
+    }
+
+    //    内部类，单个节点
     public static class Node<E> {
         private E data;
         protected Node<E> next = null;
@@ -141,6 +166,8 @@ public class LinkList<E> {
     }
 
 //    链表整体输出方法
+//    上：使用循环输出
+//    下：使用迭代器输出
     public void print(){
         if (isEmpty())
             System.out.println("no element");
@@ -156,6 +183,13 @@ public class LinkList<E> {
         }
     }
 
+    public void printByIter() {
+        Iterator iter = this.iterator();
+        while (iter.hasNext()) {
+            System.out.print(iter.next());
+        }
+    }
+
     public static void main(String[] args) {
         LinkList<Integer> ll = new LinkList<Integer>();
         ll.append(1);
@@ -168,5 +202,6 @@ public class LinkList<E> {
         ll.print();
         ll.remove(2);
         ll.print();
+        ll.printByIter();
     }
 }
