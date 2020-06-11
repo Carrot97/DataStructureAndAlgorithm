@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Bubble {
 
-    public static int[] sort(int[] data) {
+    public static void sort(int[] data) {
         // 提前终止控制
         boolean isDone = true;
         for (int i=0; isDone; i++) {
@@ -19,16 +19,12 @@ public class Bubble {
 //                    data[j] = a.getValue();
 //                    data[j+1] = b.getValue();
                     // 直接swap
-                    int tmp = data[j];
-                    data[j] = data[j+1];
-                    data[j+1] = tmp;
+                    Swap.swap(data, j, j+1);
 
                     isDone = true;
                 }
             }
         }
-
-        return data;
     }
 
     public static void main(String[] args) {
@@ -38,8 +34,8 @@ public class Bubble {
         }
         System.out.println(Arrays.toString(data));
 
-        int[] dataSorted = sort(data);
-        System.out.println(Arrays.toString(dataSorted));
+        sort(data);
+        System.out.println(Arrays.toString(data));
     }
 
 }
