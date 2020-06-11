@@ -1,7 +1,6 @@
 import java.util.Arrays;
 
 import sort.Bubble;
-import sort.Bubble.*;
 
 public class Deduplication {
     private static int find(int data, int[] array, int hi) {
@@ -28,7 +27,6 @@ public class Deduplication {
                 deleteNum++;
             }
         }
-        System.out.println(Arrays.toString(array));
         int[] newArray = new int[oldSize-deleteNum];
         System.arraycopy(array, 0, newArray, 0, oldSize-deleteNum);
         array = null;
@@ -63,10 +61,9 @@ public class Deduplication {
         int[] data_ddp = disorderlyDeduplicate(data);
         System.out.println(Arrays.toString(data_ddp));
 
-        int[] dataSorted = Bubble.sort(data);
-        System.out.println(Arrays.toString(dataSorted));
-        int[] data_odp = orderedDeduplicate(dataSorted);
+        Bubble.sort(data);
+        System.out.println(Arrays.toString(data));
+        int[] data_odp = orderedDeduplicate(data);
         System.out.println(Arrays.toString(data_odp));
-
     }
 }

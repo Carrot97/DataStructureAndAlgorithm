@@ -51,10 +51,10 @@ public class binary {
             data[i] = (int) (Math.random() * 10);
         }
 //        data[0] = 233;
-        int[] dataSorted = Bubble.sort(data);
-        System.out.println(Arrays.toString(dataSorted));
-        System.out.println(search(dataSorted, 2));
-        System.out.println(rank(dataSorted,2));
-        System.out.println(count(dataSorted, 2));
+        Bubble.sort(data);
+        System.out.println(Arrays.toString(data));
+        System.out.println(search(data, 2));
+        System.out.println(rank(data,2));
+        System.out.println(count(data, 2));
     }
 }
