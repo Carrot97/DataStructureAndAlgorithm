@@ -4,9 +4,8 @@ import java.util.Arrays;
 
 public class Insertion {
 
-    public static void sort(int[] data) {
-        int N = data.length;
-        for (int i=1; i < N; i++) {
+    public static void sort(int[] data, int lo, int hi) {
+        for (int i=lo; i <= hi; i++) {
             int j = i;
             while ((j > 0) && (data[j-1] > data[i])) j--;
             // 集体右移操作
@@ -25,7 +24,7 @@ public class Insertion {
         }
         System.out.println(Arrays.toString(data));
 
-        sort(data);
+        sort(data, 0, data.length-1);
         System.out.println(Arrays.toString(data));
     }
 }
