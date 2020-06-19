@@ -1,5 +1,7 @@
 package sort;
 
+import java.util.Random;
+
 public class Swap {
     public static void swap(MyInteger a, MyInteger b) {
         int tmp = a.getValue();
@@ -16,6 +18,15 @@ public class Swap {
     public static void backward(int[] arr, int start, int end, int offset, int interval) {
         for (int i=end; i >= start; i -= interval) {
             arr[i+offset] = arr[i];
+        }
+    }
+
+    public static void shuffle(int[] arr, int start, int end) {
+        int N = end - start + 1;
+        Random rand = new Random();
+        for (int i=0; i < N-1; i++) {
+            int j = rand.nextInt(N-i-1);
+            swap(arr, start+i, start+i+j+1);
         }
     }
 
