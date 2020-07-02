@@ -224,7 +224,7 @@ public class BinaryTree<Key extends Comparable<Key>, Value> {
         if (x == null) return;
         int cmplo = lo.compareTo(x.key), cmphi = hi.compareTo(x.key);
         if (cmplo < 0) keys(x.left, ll, lo, hi);
-        if (cmplo > 0 && cmphi < 0) ll.add(x.key);
+        if (cmplo <= 0 && cmphi >= 0) ll.add(x.key);
         if (cmphi > 0) keys(x.right, ll, lo, hi);
     }
 
